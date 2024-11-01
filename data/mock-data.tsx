@@ -1,34 +1,60 @@
-export const navigationMenu = [
-  { label: "Main", href: "/" },
-  { label: "Who We Are", href: "#whoweare" },
-  { label: "Our Services", href: "#services" },
-  { label: "Contact Us", href: "#contacts" },
+import { iconMap } from "@/sections/Services/types";
+
+export const navigationMenuHome = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "#whoweare" },
+  { label: "Services", href: "#services" },
+  { label: "Contacts", href: "#contacts" },
 ];
 
-export const socialLinks = [
+export const servicesData: Array<{
+  title: string;
+  description: string;
+  icon: keyof typeof iconMap;
+}> = [
   {
-    id: 1,
-    title: "Terms",
-    url: "https://instagram.com",
+    title: "Coworking Services",
+    description:
+      "Flexible and modern coworking spaces designed to inspire creativity and collaboration.",
+    icon: "users",
   },
   {
-    id: 2,
-    title: "Privacy Policy",
-    url: "https://linkedin.com",
+    title: "IT Services",
+    description:
+      "Comprehensive IT support and solutions tailored to your business needs.",
+    icon: "code",
   },
   {
-    id: 3,
-    title: "Cookie Policy",
-    url: "mailto:example@example.com",
+    title: "Business Consulting",
+    description: "Expert advice to optimize your operations and strategies.",
+    icon: "bar-chart-2",
   },
   {
-    id: 4,
-    title: "Support",
-    url: "mailto:example@example.com",
+    title: "Digital Marketing",
+    description:
+      "Effective marketing strategies to boost your online presence.",
+    icon: "megaphone",
   },
   {
-    id: 5,
-    title: "Manage Cookie Preferences",
-    url: "mailto:example@example.com",
+    title: "Application Development",
+    description: "Custom application development to bring your ideas to life.",
+    icon: "smartphone",
+  },
+  {
+    title: "Web Development",
+    description: "Professional website design and development services.",
+    icon: "globe",
+  },
+  {
+    title: "Lead Generation",
+    description:
+      "Proven techniques to generate high-quality leads for your business.",
+    icon: "user-plus",
+  },
+  {
+    title: "Personnel Hiring",
+    description:
+      "Expert recruitment services to find the right talent for your business.",
+    icon: "briefcase",
   },
 ];

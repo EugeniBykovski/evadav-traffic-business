@@ -1,16 +1,19 @@
 "use client";
 
 import { FC, memo } from "react";
-import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
+import SolutionSection from "@/sections/Solution/Solution";
+import AboutSection from "@/sections/About/About";
+import ServicesSection from "@/sections/Services/Services";
+import ContactSection from "@/sections/Contact/Contact";
 
 const Home: FC = memo(() => {
-  const t = useTranslations("header");
-
   return (
-    <div>
-      <Button>{t("description")}</Button>
-    </div>
+    <>
+      <SolutionSection />
+      <AboutSection />
+      <ServicesSection />
+      <ContactSection />
+    </>
   );
 });
 
