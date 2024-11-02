@@ -2,21 +2,23 @@
 
 import { FC, memo } from "react";
 import { useTranslations } from "next-intl";
-import Logo from "@/components/Logo/Logo";
 
 const Footer: FC = memo(() => {
   const t = useTranslations("footer");
 
   return (
-    <footer className="w-full bg-[#ffffff] text-zinc-400 text-sm py-8 shadow-2xl">
+    <footer className="w-full bg-gradient-to-r from-[#0f054c] to-[#0f0577] text-zinc-200 text-sm py-8 shadow-2xl">
       <div className="container">
-        <div className="sm:flex sm:justify-center md:justify-start">
-          <Logo />
+        <div className="text-center py-2">
+          <p className="text-lg">Wartraf sp. z o.o. ul.</p>
+          <p className="text-lg">
+            Straganiarska, 20-22/35, Gdansk, 80-837, Poland
+          </p>
+          <p className="text-lg">NIP: 5833620602</p>
+          <p className="text-lg">E-mail: contact@wartraf.com</p>
         </div>
-        <p className="mt-6 md:text-xm sm:text-xs sm:text-center md:text-left font-light text-[#929994]">
+        <p className="mt-6 md:text-xm sm:text-xs sm:text-center md:text-left font-light text-[#868686]">
           {t("copyright")} &copy; {t("rights")}
-          Wartraf sp. z o.o. ul. Straganiarska, 20-22/35, Gdansk, 80-837, Poland
-          NIP: 5833620602 E-mail: contact@wartraf.com
         </p>
       </div>
     </footer>

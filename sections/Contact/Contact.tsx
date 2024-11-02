@@ -6,6 +6,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { schema } from "./schema";
 import { FormData } from "./types";
+import Subtitle from "@/components/Subtitle/Subtitle";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const ContactForm = () => {
   const {
@@ -48,29 +52,31 @@ const ContactForm = () => {
 
   return (
     <section id="contacts" className="p-8">
-      <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
+      <Subtitle>Contact Us</Subtitle>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-4 max-w-lg mx-auto"
       >
         {fields.map((field) => (
           <div key={field}>
-            <input
+            <Input
               {...register(field)}
               placeholder={field.replace(/^\w/, (c) => c.toUpperCase())}
-              className="w-full p-2 border rounded"
+              className="w-full p-5 rounded cursor-pointer hover:shadow-md transition text-xs"
             />
             {errors[field] && (
-              <p className="text-red-500">{errors[field]?.message}</p>
+              <Label className="text-red-500">{errors[field]?.message}</Label>
             )}
           </div>
         ))}
-        <button
+        <Button
           type="submit"
-          className="w-full bg-purple-500 text-white p-2 rounded"
+          variant={"default"}
+          size={"lg"}
+          className="text-white text-md flex justify-start"
         >
           Submit
-        </button>
+        </Button>
       </form>
     </section>
   );

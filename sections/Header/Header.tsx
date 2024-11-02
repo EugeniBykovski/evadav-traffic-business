@@ -9,11 +9,11 @@ const Header: FC = () => {
   const scrollProgress = useScrollProgress();
 
   return (
-    <header className="sticky top-0 backdrop-blur-sm z-20 shadow-sm">
+    <header className="sticky top-0 backdrop-blur-lg z-20 shadow-sm">
       <Navigation />
       <Progress
         value={scrollProgress}
-        className="h-[2px] w-full fixed top-22 left-0 bg-transparent"
+        className="h-[1.5px] w-full fixed top-22 left-0 bg-transparent"
       />
     </header>
   );

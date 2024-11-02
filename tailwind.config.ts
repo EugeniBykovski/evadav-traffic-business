@@ -29,7 +29,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        highlight: "#699849",
+        highlight: "#26c0a9",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -79,7 +79,7 @@ const config: Config = {
     function ({ addUtilities }: PluginAPI) {
       addUtilities({
         "::selection": {
-          backgroundColor: "blue",
+          backgroundColor: "#26c0a9",
           color: "#ffffff",
         },
       });

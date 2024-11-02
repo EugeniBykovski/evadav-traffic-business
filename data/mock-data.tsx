@@ -52,6 +52,12 @@ export const servicesData: Array<{
     icon: "user-plus",
   },
   {
+    title: "Traffic Acquisition",
+    description:
+      "Strategic acquisition of targeted traffic to enhance your online visibility.",
+    icon: "lightbulb",
+  },
+  {
     title: "Personnel Hiring",
     description:
       "Expert recruitment services to find the right talent for your business.",

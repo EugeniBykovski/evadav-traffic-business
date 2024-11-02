@@ -47,7 +47,7 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
                     <Link key={href} href={href} legacyBehavior passHref>
                       <NavigationMenuLink
                         className={twMerge(
-                          "hover:opacity-80 transition text-md text-[#5dd38a]",
+                          "hover:opacity-80 transition text-md text-[#373168]",
                           className
                         )}
                       >
@@ -66,7 +66,7 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
           {isPageLoaded && (
             <Sheet>
               <SheetTrigger className="md:hidden">
-                <Menu className="text-[#5dd38a]" size={26} />
+                <Menu className="text-[#373168]" size={26} />
               </SheetTrigger>
               <SheetContent className="top-0 mt-0 ml-[30%] p-4 rounded-t-none border-none rounded-[10px] remove-close-btn">
                 <SheetHeader>
@@ -84,7 +84,7 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
                       <Link key={href} href={href} passHref>
                         <Button
                           variant="ghost"
-                          className=" text-black/60 hover:text-[#5dd38a]"
+                          className=" text-black/60 hover:text-[#373168]"
                         >
                           {t(label.toLowerCase())}
                         </Button>
