@@ -1,5 +1,6 @@
 "use client";
 
+import { FC, memo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
@@ -10,8 +11,11 @@ import Subtitle from "@/components/Subtitle/Subtitle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useTranslations } from "next-intl";
 
-const ContactForm = () => {
+const ContactForm: FC = memo(() => {
+  const t = useTranslations("contact-section");
+
   const {
     register,
     handleSubmit,
@@ -30,14 +34,15 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        toast.success("Message sent successfully!");
+        toast.success(t("messageSent"));
         reset();
       } else {
-        toast.error("Failed to send message.");
+        const errorData = await response.json().catch(() => null);
+        toast.error(errorData?.message || t("sendError"));
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("Failed to send message.");
+      toast.error(t("sendError"));
     }
   };
 
@@ -52,7 +57,8 @@ const ContactForm = () => {
 
   return (
     <section id="contacts" className="p-8">
-      <Subtitle>Contact Us</Subtitle>
+      <Subtitle>{t("title")}</Subtitle>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-4 max-w-lg mx-auto"
@@ -69,17 +75,29 @@ const ContactForm = () => {
             )}
           </div>
         ))}
-        <Button
-          type="submit"
-          variant={"default"}
-          size={"lg"}
-          className="text-white text-md flex justify-start"
-        >
-          Submit
-        </Button>
+        <div className="flex justify-between items-center">
+          <Button
+            type="reset"
+            variant={"destructive"}
+            size={"lg"}
+            className="text-white text-md flex justify-start"
+          >
+            {t("reset")}
+          </Button>
+          <Button
+            type="submit"
+            variant={"default"}
+            size={"lg"}
+            className="text-white text-md flex justify-start"
+          >
+            {t("submit")}
+          </Button>
+        </div>
       </form>
     </section>
   );
-};
+});
+
+ContactForm.displayName = "ContactForm";
 
 export default ContactForm;

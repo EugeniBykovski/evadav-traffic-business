@@ -4,5 +4,28 @@
     "about": "Kim Jesteśmy",
     "services": "Nasze Usługi",
     "contacts": "Kontakt"
+  },
+  "solution-section": {
+    "title": "Innowacyjne Rozwiązania dla Twojego Biznesu",
+    "description": "Wspieramy Twój biznes nowoczesną technologią i ekspertyzą.",
+    "more": "Dowiedz się więcej"
+  },
+  "about-section": {
+    "title": "Kim Jesteśmy",
+    "description": "WARTRAF to dynamiczna firma specjalizująca się w innowacyjnych rozwiązaniach trafikowych. Zespół ekspertów w różnych dziedzinach dąży do świadczenia najwyższej jakości usług wspierających rozwój i sukces biznesу w świecie cyfrowym."
+  },
+  "services-section": {
+    "title": "Nasze Usługi"
+  },
+  "contact-section": {
+    "title": "Kontakt",
+    "reset": "Resetuj",
+    "submit": "Wyślij"
+  },
+  "footer": {
+    "title": "Wartraf sp. z o.o. ul.",
+    "description": "Straganiarska, 20-22/35, Gdansk, 80-837, Poland",
+    "nip": "NIP: 5833620602",
+    "email": "E-mail: contact@wartraf.com"
   }
 }

@@ -1,13 +1,18 @@
 "use client";
 
+import { FC, memo } from "react";
 import { servicesData } from "@/data/mock-data";
 import { iconMap } from "./types";
 import Subtitle from "@/components/Subtitle/Subtitle";
+import { useTranslations } from "next-intl";
 
-const ServicesSection = () => {
+const ServicesSection: FC = memo(() => {
+  const t = useTranslations("services-section");
+
   return (
     <section id="services" className="py-12">
-      <Subtitle>Our Services</Subtitle>
+      <Subtitle> {t("title")}</Subtitle>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {servicesData.map((service) => {
           const Icon = iconMap[service.icon];
@@ -31,6 +36,8 @@ const ServicesSection = () => {
       </div>
     </section>
   );
-};
+});
+
+ServicesSection.displayName = "ServicesSection";
 
 export default ServicesSection;

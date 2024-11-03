@@ -1,11 +1,11 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import Navigation from "@/components/Navigation/Navigation";
 import { Progress } from "@/components/ui/progress";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 
-const Header: FC = () => {
+const Header: FC = memo(() => {
   const scrollProgress = useScrollProgress();
 
   return (
@@ -17,7 +17,7 @@ const Header: FC = () => {
       />
     </header>
   );
-};
+});
 
 Header.displayName = "Header";
 

@@ -1,7 +1,7 @@
 import { iconMap } from "@/sections/Services/types";
 
 export const navigationMenuHome = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "#home" },
   { label: "About", href: "#whoweare" },
   { label: "Services", href: "#services" },
   { label: "Contacts", href: "#contacts" },

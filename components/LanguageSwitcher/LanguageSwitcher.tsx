@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { FC, memo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import {
   Select,
@@ -8,9 +8,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select"; // Adjust this import path if needed
+} from "../ui/select";
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher: FC = memo(() => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -44,6 +44,8 @@ const LanguageSwitcher = () => {
       </SelectContent>
     </Select>
   );
-};
+});
+
+LanguageSwitcher.displayName = "LanguageSwitcher";
 
 export default LanguageSwitcher;
