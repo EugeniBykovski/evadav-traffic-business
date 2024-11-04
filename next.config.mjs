@@ -2,6 +2,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+  middleware: ["./middleware.ts"],
+  i18n: {
+    locales: ["en", "pl"],
+    defaultLocale: "en",
+    localeDetection: false,
+  },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")

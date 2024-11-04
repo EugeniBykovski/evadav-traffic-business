@@ -1,7 +1,14 @@
-import { getRequestConfig } from 'next-intl/server';
+import { getRequestConfig } from "next-intl/server";
 
-export default getRequestConfig(async () => {
-  const locale = 'en';
+const supportedLocales = ["en", "pl"];
+const defaultLocale = "en";
+
+export default getRequestConfig(async ({ pathname }) => {
+  const pathLocale = pathname?.split("/?lang=")[1];
+
+  const locale = supportedLocales.includes(pathLocale)
+    ? pathLocale
+    : defaultLocale;
 
   return {
     locale,

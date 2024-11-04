@@ -1,7 +1,7 @@
 "use client";
 
-import { FC, memo, useState } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { FC, useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -10,18 +10,32 @@ import {
   SelectValue,
 } from "../ui/select";
 
-const LanguageSwitcher: FC = memo(() => {
+const LanguageSwitcher: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [currentLocale, setCurrentLocale] = useState("en");
+
+  const [currentLocale, setCurrentLocale] = useState(() => {
+    const pathLocale = pathname.split("/")[1];
+    return pathLocale === "en" || pathLocale === "pl" ? pathLocale : "en";
+  });
 
   const changeLanguage = (lang: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("lang", lang);
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    const newPathname = `/${lang}${pathname.substring(
+      currentLocale.length + 1
+    )}`;
     setCurrentLocale(lang);
+    router.push(newPathname, { scroll: false });
   };
+
+  useEffect(() => {
+    const pathLocale = pathname.split("/")[1];
+    if (
+      pathLocale !== currentLocale &&
+      (pathLocale === "en" || pathLocale === "pl")
+    ) {
+      setCurrentLocale(pathLocale);
+    }
+  }, [pathname, currentLocale]);
 
   return (
     <Select
@@ -44,8 +58,6 @@ const LanguageSwitcher: FC = memo(() => {
       </SelectContent>
     </Select>
   );
-});
-
-LanguageSwitcher.displayName = "LanguageSwitcher";
+};
 
 export default LanguageSwitcher;

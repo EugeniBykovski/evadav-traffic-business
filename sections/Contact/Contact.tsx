@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, memo } from "react";
+import { FC, memo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
@@ -25,25 +25,35 @@ const ContactForm: FC = memo(() => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (data: FormData) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (formData: FormData) => {
+    setSubmitting(true);
+
     try {
-      const response = await fetch("/api/sendMail", {
+      const response = await fetch("/api/contact-us", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        toast.success(t("messageSent"));
+      const { success, error } = await response.json();
+
+      if (success) {
+        toast.success("Your inquiry has been submitted!");
         reset();
       } else {
-        const errorData = await response.json().catch(() => null);
-        toast.error(errorData?.message || t("sendError"));
+        console.error("Error:", error);
+        toast.error("Error while submitting your inquiry.");
       }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      toast.error(t("sendError"));
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again.");
     }
+
+    setSubmitting(false);
   };
 
   const fields: (keyof FormData)[] = [
@@ -78,17 +88,18 @@ const ContactForm: FC = memo(() => {
         <div className="flex justify-between items-center">
           <Button
             type="reset"
-            variant={"destructive"}
-            size={"lg"}
-            className="text-white text-md flex justify-start"
+            variant="destructive"
+            size="lg"
+            onClick={() => reset()}
+            disabled={submitting}
           >
             {t("reset")}
           </Button>
           <Button
             type="submit"
-            variant={"default"}
-            size={"lg"}
-            className="text-white text-md flex justify-start"
+            variant="default"
+            size="lg"
+            disabled={submitting}
           >
             {t("submit")}
           </Button>

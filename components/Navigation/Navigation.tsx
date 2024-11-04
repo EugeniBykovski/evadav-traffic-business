@@ -33,7 +33,7 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
   useEffect(() => setIsPageLoaded(true), []);
 
   return (
-    <div className={twMerge("py-6", className)}>
+    <div className={twMerge("py-4", className)}>
       <div className="container">
         <div className="flex justify-between items-center">
           {isPageLoaded ? (

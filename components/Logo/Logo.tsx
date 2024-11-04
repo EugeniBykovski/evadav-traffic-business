@@ -2,11 +2,17 @@
 
 import { FC, memo } from "react";
 import Link from "next/link";
-import { LogoIcon } from "@/assets";
+import { LogoImg } from "@/assets";
+
+import Image from "next/image";
 
 const Logo: FC = memo(() => (
   <Link href={"/"}>
-    <LogoIcon className="hover:opacity-85 transition" />
+    <Image
+      src={LogoImg}
+      alt="logo"
+      className="hover:opacity-85 transition w-16 h-16"
+    />
   </Link>
 ));
 
