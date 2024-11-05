@@ -33,13 +33,13 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
   useEffect(() => setIsPageLoaded(true), []);
 
   return (
-    <div className={twMerge("py-4", className)}>
+    <div className={twMerge("py-1", className)}>
       <div className="container">
         <div className="flex justify-between items-center">
           {isPageLoaded ? (
             <Logo />
           ) : (
-            <Skeleton className="w-16 h-8 rounded-md" />
+            <Skeleton className="w-16 h-14 rounded-md" />
           )}
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="flex gap-4 text-black/60 items-center">
@@ -66,7 +66,7 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
             {isPageLoaded ? (
               <LanguageSwitcher />
             ) : (
-              <Skeleton className="w-16 h-8 rounded-md" />
+              <Skeleton className="w-16 h-10 rounded-md" />
             )}
           </div>
           {isPageLoaded && (
