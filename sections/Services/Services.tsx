@@ -13,23 +13,24 @@ const ServicesSection: FC = memo(() => {
     <section id="services" className="py-12">
       <Subtitle> {t("title")}</Subtitle>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {servicesData.map((service) => {
+      <div>
+        {servicesData.map((service, index) => {
           const Icon = iconMap[service.icon];
 
           return (
             <div
               key={service.title}
-              className="p-6 bg-purple-200 rounded-lg text-center hover:shadow-md transition cursor-pointer"
+              className={`flex flex-col md:flex-row ${
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              } items-center bg-purple-100 shadow-md`}
             >
-              <Icon className="w-10 h-10 mx-auto mb-6 text-purple-700" />
-              <h3
-                className="font-semibold text-lg mb-2
-              "
-              >
-                {service.title}
-              </h3>
-              <p>{service.description}</p>
+              <div className="w-full md:w-1/2 h-64 bg-gray-300 flex items-center justify-center"></div>
+
+              <div className="w-full md:w-1/2 text-center p-12">
+                <Icon className="w-10 h-10 mb-4 text-purple-700 mx-auto" />
+                <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
+                <p className="text-sm">{service.description}</p>
+              </div>
             </div>
           );
         })}

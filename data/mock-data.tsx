@@ -45,22 +45,4 @@ export const servicesData: Array<{
     description: "Professional website design and development services.",
     icon: "globe",
   },
-  {
-    title: "Lead Generation",
-    description:
-      "Proven techniques to generate high-quality leads for your business.",
-    icon: "user-plus",
-  },
-  {
-    title: "Traffic Acquisition",
-    description:
-      "Strategic acquisition of targeted traffic to enhance your online visibility.",
-    icon: "lightbulb",
-  },
-  {
-    title: "Personnel Hiring",
-    description:
-      "Expert recruitment services to find the right talent for your business.",
-    icon: "briefcase",
-  },
 ];

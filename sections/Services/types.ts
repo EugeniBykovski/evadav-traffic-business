@@ -5,9 +5,6 @@ import {
   Megaphone,
   Smartphone,
   Globe,
-  UserPlus,
-  Briefcase,
-  Lightbulb,
 } from "lucide-react";
 
 export const iconMap = {
@@ -17,7 +14,4 @@ export const iconMap = {
   megaphone: Megaphone,
   smartphone: Smartphone,
   globe: Globe,
-  "user-plus": UserPlus,
-  briefcase: Briefcase,
-  lightbulb: Lightbulb,
 };
