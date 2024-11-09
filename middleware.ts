@@ -1,22 +1,25 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-const supportedLocales = ["en", "pl"];
-const defaultLocale = "en";
+export async function middleware(req: NextRequest) {
+  const { nextUrl, cookies } = req;
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  const pathLocale = pathname.split("/?lang=")[1];
+  if (
+    nextUrl.pathname.startsWith("/_next") ||
+    nextUrl.pathname.includes("/api/") ||
+    /\.(.*)$/.test(nextUrl.pathname)
+  ) {
+    return NextResponse.next();
+  }
 
-  if (!supportedLocales.includes(pathLocale)) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/${defaultLocale}${pathname}`;
-    return NextResponse.redirect(url);
+  const locale =
+    nextUrl.locale !== "default"
+      ? nextUrl.locale
+      : cookies.get("NEXT_LOCALE")?.value || "en";
+  if (locale !== nextUrl.locale) {
+    return NextResponse.redirect(
+      new URL(`/${locale}${nextUrl.pathname}${nextUrl.search}`, req.url)
+    );
   }
 
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: "/((?!_next|api|favicon.ico).*)",
-};

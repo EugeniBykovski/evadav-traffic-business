@@ -1,4 +1,5 @@
-import { iconMap } from "@/sections/Services/types";
+import { img_1, img_2, img_3, img_4, img_5, img_6 } from "@/assets";
+import { StaticImageData } from "next/image";
 
 export const navigationMenuHome = [
   { label: "Home", href: "#home" },
@@ -10,39 +11,39 @@ export const navigationMenuHome = [
 export const servicesData: Array<{
   title: string;
   description: string;
-  icon: keyof typeof iconMap;
+  image: StaticImageData;
 }> = [
   {
     title: "Coworking Services",
     description:
       "Flexible and modern coworking spaces designed to inspire creativity and collaboration.",
-    icon: "users",
+    image: img_1,
   },
   {
     title: "IT Services",
     description:
       "Comprehensive IT support and solutions tailored to your business needs.",
-    icon: "code",
+    image: img_2,
   },
   {
     title: "Business Consulting",
     description: "Expert advice to optimize your operations and strategies.",
-    icon: "bar-chart-2",
+    image: img_3,
   },
   {
     title: "Digital Marketing",
     description:
       "Effective marketing strategies to boost your online presence.",
-    icon: "megaphone",
+    image: img_4,
   },
   {
     title: "Application Development",
     description: "Custom application development to bring your ideas to life.",
-    icon: "smartphone",
+    image: img_5,
   },
   {
     title: "Web Development",
     description: "Professional website design and development services.",
-    icon: "globe",
+    image: img_6,
   },
 ];

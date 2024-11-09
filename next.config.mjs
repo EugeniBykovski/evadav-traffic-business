@@ -3,7 +3,6 @@ import createNextIntlPlugin from "next-intl/plugin";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  middleware: ["./middleware.ts"],
   i18n: {
     locales: ["en", "pl"],
     defaultLocale: "en",

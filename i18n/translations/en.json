@@ -12,13 +12,14 @@
   },
   "about-section": {
     "title": "Who We Are",
-    "description": "WARTRAF is a dynamic company specializing in innovative traffic solutions. With a team of experts in various fields, we strive to provide top-notch services that help businesses grow and succeed in the digital world."
+    "description": "WARTRAF is an innovative solutions provider dedicated to empowering businesses in the digital landscape. Our diverse team of experts leverages cutting-edge strategies and technologies to deliver exceptional services that drive growth and success. We are committed to fostering collaboration and creativity, ensuring that our clients can thrive in today's competitive environment."
   },
   "services-section": {
     "title": "Our Services"
   },
   "contact-section": {
-    "title": "Contact Us",
+    "title": "Get in touch today and discover how our tailored solutions can elevate your business.",
+    "description": "Reach out for personalized solutions tailored to your needs.",
     "reset": "Reset",
     "submit": "Submit",
     "messageSent": "Message sent successfully!",

@@ -12,15 +12,18 @@
   },
   "about-section": {
     "title": "Kim Jesteśmy",
-    "description": "WARTRAF to dynamiczna firma specjalizująca się w innowacyjnych rozwiązaniach trafikowych. Zespół ekspertów w różnych dziedzinach dąży do świadczenia najwyższej jakości usług wspierających rozwój i sukces biznesу w świecie cyfrowym."
+    "description": "WARTRAF to dostawca innowacyjnych rozwiązań, którego celem jest wzmocnienie pozycji firm w cyfrowym krajobrazie. Nasz zróżnicowany zespół ekspertów wykorzystuje najnowocześniejsze strategie i technologie, aby dostarczać wyjątkowe usługi, które napędzają wzrost i sukces. Dążymy do wspierania współpracy i kreatywności, zapewniając naszym klientom możliwość rozwoju w dzisiejszym konkurencyjnym środowisku. Przetłumaczono z DeepL.com (wersja darmowa)"
   },
   "services-section": {
     "title": "Nasze Usługi"
   },
   "contact-section": {
-    "title": "Kontakt",
+    "title": "Skontaktuj się z nami już dziś i dowiedz się, w jaki sposób nasze dopasowane rozwiązania mogą podnieść poziom Twojej firmy.",
+    "description": "Skontaktuj się z nami, aby uzyskać spersonalizowane rozwiązania dostosowane do Twoich potrzeb.",
     "reset": "Resetuj",
-    "submit": "Wyślij"
+    "submit": "Wyślij",
+    "messageSent": "Wiadomość wysłana pomyślnie!",
+    "sendError": "Nie udało się wysłać wiadomości."
   },
   "footer": {
     "title": "Wartraf sp. z o.o. ul.",

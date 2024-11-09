@@ -67,7 +67,10 @@ const ContactForm: FC = memo(() => {
 
   return (
     <section id="contacts" className="p-8">
-      <Subtitle>{t("title")}</Subtitle>
+      <Subtitle className="mb-4">{t("title")}</Subtitle>
+      <p className="mb-8 text-[#373168] lg:px-48 md:px-0 text-md tracking-wide">
+        {t("description")}
+      </p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}

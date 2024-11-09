@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import {
   Select,
@@ -13,29 +13,13 @@ import {
 const LanguageSwitcher: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
-
-  const [currentLocale, setCurrentLocale] = useState(() => {
-    const pathLocale = pathname.split("/")[1];
-    return pathLocale === "en" || pathLocale === "pl" ? pathLocale : "en";
-  });
+  const currentLocale = pathname.split("/")[1] || "en";
 
   const changeLanguage = (lang: string) => {
-    const newPathname = `/${lang}${pathname.substring(
-      currentLocale.length + 1
-    )}`;
-    setCurrentLocale(lang);
-    router.push(newPathname, { scroll: false });
+    router.push(`/${lang}${pathname.substring(currentLocale.length + 1)}`, {
+      scroll: false,
+    });
   };
-
-  useEffect(() => {
-    const pathLocale = pathname.split("/")[1];
-    if (
-      pathLocale !== currentLocale &&
-      (pathLocale === "en" || pathLocale === "pl")
-    ) {
-      setCurrentLocale(pathLocale);
-    }
-  }, [pathname, currentLocale]);
 
   return (
     <Select
