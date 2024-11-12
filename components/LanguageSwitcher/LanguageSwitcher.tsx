@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -10,15 +10,27 @@ import {
   SelectValue,
 } from "../ui/select";
 
+const supportedLocales = ["en", "pl"];
+
 const LanguageSwitcher: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const currentLocale = pathname.split("/")[1] || "en";
+  const searchParams = useSearchParams();
+  const currentLocale = supportedLocales.includes(pathname.split("/")[1])
+    ? pathname.split("/")[1]
+    : "en";
 
   const changeLanguage = (lang: string) => {
-    router.push(`/${lang}${pathname.substring(currentLocale.length + 1)}`, {
-      scroll: false,
-    });
+    const pathWithoutLocale = supportedLocales.includes(currentLocale)
+      ? pathname.substring(currentLocale.length + 1)
+      : pathname;
+
+    const newPath = `/${lang}${pathWithoutLocale}`;
+    const newUrl = searchParams.toString()
+      ? `${newPath}?${searchParams.toString()}`
+      : newPath;
+
+    router.push(newUrl, { scroll: false });
   };
 
   return (
@@ -30,7 +42,7 @@ const LanguageSwitcher: FC = () => {
         <SelectValue placeholder={currentLocale.toUpperCase()} />
       </SelectTrigger>
       <SelectContent className="bg-[#00b69b] text-white rounded shadow-md">
-        {["en", "pl"].map((lang) => (
+        {supportedLocales.map((lang) => (
           <SelectItem
             key={lang}
             value={lang}
