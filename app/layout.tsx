@@ -10,6 +10,7 @@ import Head from "next/head";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LanguageProvider } from "@/contexts/LanguageProvider";
+import { Suspense } from "react";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -39,16 +40,18 @@ export default async function RootLayout({
         />
       </Head>
       <body className={clsx(dmSans.className, "antialiased")}>
-        <LanguageProvider>
-          <NextIntlClientProvider messages={messages} locale={locale}>
-            <ToastContainer position="bottom-right" />
-            <Header />
-            <main className="w-[100%] mx-auto gap-x-2 min-h-[calc(100vh-3.5rem-1px)] my-4 container text-center">
-              {children}
-            </main>
-            <Footer />
-          </NextIntlClientProvider>
-        </LanguageProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <LanguageProvider>
+            <NextIntlClientProvider messages={messages} locale={locale}>
+              <ToastContainer position="bottom-right" />
+              <Header />
+              <main className="w-[100%] mx-auto gap-x-2 min-h-[calc(100vh-3.5rem-1px)] my-4 container text-center">
+                {children}
+              </main>
+              <Footer />
+            </NextIntlClientProvider>
+          </LanguageProvider>
+        </Suspense>
       </body>
     </html>
   );
