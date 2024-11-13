@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: "Innovative Solutions for Your Business",
   description: "Innovative Solutions for Your Business",
   icons: {
-    icon: "/assets/icons/logos/logo-icon.tsx",
-    shortcut: "/assets/icons/logos/logo-icon.tsx",
+    icon: "/assets/icons/logos/logo.svg",
+    shortcut: "/assets/icons/logos/logo.svg",
   },
 };
 
