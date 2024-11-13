@@ -10,12 +10,16 @@ import {
 } from "../ui/select";
 import { useLanguage } from "@/contexts/LanguageProvider";
 import { supportedLocales } from "@/data/mock-data";
+import { AvailableLocales } from "@/app/i18n/translations";
 
 const LanguageSwitcher: FC = () => {
   const { locale, changeLanguage } = useLanguage();
 
   return (
-    <Select value={locale} onValueChange={(value) => changeLanguage(value)}>
+    <Select
+      value={locale}
+      onValueChange={(value) => changeLanguage(value as AvailableLocales)}
+    >
       <SelectTrigger className="p-2 focus:ring-0 bg-[#00b69b] text-white rounded">
         <SelectValue placeholder={locale.toUpperCase()} />
       </SelectTrigger>
