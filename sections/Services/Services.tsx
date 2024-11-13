@@ -14,9 +14,14 @@ const ServicesSection: FC = memo(() => {
       <Subtitle>{t("title")}</Subtitle>
       <div>
         {servicesData.map((service, index) => {
+          const translatedTitle = t(`services.${service.key}.title`);
+          const translatedDescription = t(
+            `services.${service.key}.description`
+          );
+
           return (
             <div
-              key={service.title}
+              key={service.key}
               className={`flex flex-col md:flex-row ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               } items-center`}
@@ -25,7 +30,7 @@ const ServicesSection: FC = memo(() => {
                 {service.image && (
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={translatedTitle}
                     width={service.width}
                     height={service.height}
                     className="object-cover w-full h-full"
@@ -35,9 +40,11 @@ const ServicesSection: FC = memo(() => {
               </div>
               <div className="w-full md:w-1/2 text-center p-12">
                 <h3 className="font-semibold text-2xl mb-2 text-[#383167]">
-                  {service.title}
+                  {translatedTitle}
                 </h3>
-                <p className="text-md text-[#383167]">{service.description}</p>
+                <p className="text-md text-[#383167]">
+                  {translatedDescription}
+                </p>
               </div>
             </div>
           );

@@ -15,7 +15,33 @@
     "description": "WARTRAF is an innovative solutions provider dedicated to empowering businesses in the digital landscape. Our diverse team of experts leverages cutting-edge strategies and technologies to deliver exceptional services that drive growth and success. We are committed to fostering collaboration and creativity, ensuring that our clients can thrive in today's competitive environment."
   },
   "services-section": {
-    "title": "Our Services"
+    "title": "Our Services",
+    "services": {
+      "coworking": {
+        "title": "Coworking Services",
+        "description": "Flexible and modern coworking spaces designed to inspire creativity and collaboration."
+      },
+      "it": {
+        "title": "IT Services",
+        "description": "Comprehensive IT support and solutions tailored to your business needs."
+      },
+      "consulting": {
+        "title": "Business Consulting",
+        "description": "Expert advice to optimize your operations and strategies."
+      },
+      "marketing": {
+        "title": "Digital Marketing",
+        "description": "Effective marketing strategies to boost your online presence."
+      },
+      "application": {
+        "title": "Application Development",
+        "description": "Custom application development to bring your ideas to life."
+      },
+      "web": {
+        "title": "Web Development",
+        "description": "Professional website design and development services."
+      }
+    }
   },
   "contact-section": {
     "title": "Get in touch today and discover how our tailored solutions can elevate your business.",

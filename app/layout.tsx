@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import clsx from "clsx";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
 import "./globals.css";
 import Header from "@/sections/Header/Header";
 import Footer from "@/sections/Footer/Footer";
@@ -11,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LanguageProvider } from "@/contexts/LanguageProvider";
 import { Suspense } from "react";
+import { DynamicIntlProvider } from "@/components/DynamicIntlProvider/DynamicIntlProvider";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -23,16 +22,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const locale = await getLocale();
-  const messages = await getMessages();
-
+}) {
   return (
-    <html className="relative" lang={locale}>
+    <html className="relative">
       <Head>
         <meta
           name="viewport"
@@ -42,14 +38,14 @@ export default async function RootLayout({
       <body className={clsx(dmSans.className, "antialiased")}>
         <Suspense fallback={<div>Loading...</div>}>
           <LanguageProvider>
-            <NextIntlClientProvider messages={messages} locale={locale}>
+            <DynamicIntlProvider>
               <ToastContainer position="bottom-right" />
               <Header />
               <main className="w-[100%] mx-auto gap-x-2 min-h-[calc(100vh-3.5rem-1px)] my-4 container text-center">
                 {children}
               </main>
               <Footer />
-            </NextIntlClientProvider>
+            </DynamicIntlProvider>
           </LanguageProvider>
         </Suspense>
       </body>

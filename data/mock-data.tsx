@@ -11,6 +11,7 @@ export const navigationMenuHome = [
 export const supportedLocales = ["en", "pl"];
 
 export const servicesData: Array<{
+  key: string;
   title: string;
   description: string;
   image: StaticImageData;
@@ -18,6 +19,7 @@ export const servicesData: Array<{
   height: number;
 }> = [
   {
+    key: "coworking",
     title: "Coworking Services",
     description:
       "Flexible and modern coworking spaces designed to inspire creativity and collaboration.",
@@ -26,6 +28,7 @@ export const servicesData: Array<{
     height: 600,
   },
   {
+    key: "it",
     title: "IT Services",
     description:
       "Comprehensive IT support and solutions tailored to your business needs.",
@@ -34,6 +37,7 @@ export const servicesData: Array<{
     height: 600,
   },
   {
+    key: "consulting",
     title: "Business Consulting",
     description: "Expert advice to optimize your operations and strategies.",
     image: img_3,
@@ -41,6 +45,7 @@ export const servicesData: Array<{
     height: 600,
   },
   {
+    key: "marketing",
     title: "Digital Marketing",
     description:
       "Effective marketing strategies to boost your online presence.",
@@ -49,6 +54,7 @@ export const servicesData: Array<{
     height: 600,
   },
   {
+    key: "application",
     title: "Application Development",
     description: "Custom application development to bring your ideas to life.",
     image: img_5,
@@ -56,6 +62,7 @@ export const servicesData: Array<{
     height: 600,
   },
   {
+    key: "web",
     title: "Web Development",
     description: "Professional website design and development services.",
     image: img_6,

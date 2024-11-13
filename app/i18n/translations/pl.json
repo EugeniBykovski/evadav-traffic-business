@@ -15,7 +15,33 @@
     "description": "WARTRAF to dostawca innowacyjnych rozwiązań, którego celem jest wzmocnienie pozycji firm w cyfrowym krajobrazie. Nasz zróżnicowany zespół ekspertów wykorzystuje najnowocześniejsze strategie i technologie, aby dostarczać wyjątkowe usługi, które napędzają wzrost i sukces. Dążymy do wspierania współpracy i kreatywności, zapewniając naszym klientom możliwość rozwoju w dzisiejszym konkurencyjnym środowisku. Przetłumaczono z DeepL.com (wersja darmowa)"
   },
   "services-section": {
-    "title": "Nasze Usługi"
+    "title": "Nasze Usługi",
+    "services": {
+      "coworking": {
+        "title": "Usługi Coworking",
+        "description": "Elastyczne i nowoczesne przestrzenie coworkingowe zaprojektowane, aby inspirować kreatywność i współpracę."
+      },
+      "it": {
+        "title": "Usługi IT",
+        "description": "Kompleksowe wsparcie IT i rozwiązania dostosowane do potrzeb Twojego biznesu."
+      },
+      "consulting": {
+        "title": "Konsulting Biznesowy",
+        "description": "Eksperckie porady optymalizujące operacje i strategie."
+      },
+      "marketing": {
+        "title": "Marketing Cyfrowy",
+        "description": "Skuteczne strategie marketingowe zwiększające Twoją obecność online."
+      },
+      "application": {
+        "title": "Tworzenie Aplikacji",
+        "description": "Indywidualne tworzenie aplikacji, aby ożywić Twoje pomysły."
+      },
+      "web": {
+        "title": "Tworzenie Stron Internetowych",
+        "description": "Profesjonalne usługi projektowania i tworzenia stron internetowych."
+      }
+    }
   },
   "contact-section": {
     "title": "Skontaktuj się z nami już dziś i dowiedz się, w jaki sposób nasze dopasowane rozwiązania mogą podnieść poziom Twojej firmy.",
