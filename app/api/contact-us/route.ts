@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     const recipientEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL || "";
 
     const emailData = await resend.emails.send({
-      from: "wartraf.com",
+      from: "request@wartraf.com",
       to: recipientEmail,
       subject: localizedSubject,
       react: React.createElement(EmailTemplate, {
