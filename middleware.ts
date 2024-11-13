@@ -11,15 +11,21 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  const locale =
-    nextUrl.locale !== "default"
-      ? nextUrl.locale
-      : cookies.get("NEXT_LOCALE")?.value || "en";
+  const langParam = nextUrl.searchParams.get("lang");
+  let locale = langParam || cookies.get("NEXT_LOCALE")?.value || "en";
 
-  if (locale !== nextUrl.locale) {
-    return NextResponse.redirect(
-      new URL(`/${locale}${nextUrl.pathname}${nextUrl.search}`, req.url)
+  if (!langParam) {
+    const response = NextResponse.redirect(
+      new URL(`${nextUrl.pathname}?lang=${locale}${nextUrl.search}`, req.url)
     );
+    response.cookies.set("NEXT_LOCALE", locale);
+    return response;
+  }
+
+  if (langParam !== cookies.get("NEXT_LOCALE")?.value) {
+    const response = NextResponse.next();
+    response.cookies.set("NEXT_LOCALE", langParam);
+    return response;
   }
 
   return NextResponse.next();

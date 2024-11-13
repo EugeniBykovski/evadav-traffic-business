@@ -1,7 +1,6 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
 import {
   NavigationMenu,
   NavigationMenuLink,
@@ -25,6 +24,7 @@ import Logo from "../Logo/Logo";
 import { Skeleton } from "../ui/skeleton";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { handleSmoothScroll } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const Navigation: FC<INavigationProps> = ({ className }) => {
   const t = useTranslations("navigation");

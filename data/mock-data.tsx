@@ -8,6 +8,8 @@ export const navigationMenuHome = [
   { label: "Contacts", href: "#contacts" },
 ];
 
+export const supportedLocales = ["en", "pl"];
+
 export const servicesData: Array<{
   title: string;
   description: string;
