@@ -17,6 +17,7 @@ export default getRequestConfig(async ({ searchParams }) => {
       locale,
       messages: (await import(`./translations/${locale}.json`)).default,
     };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     notFound();
   }
