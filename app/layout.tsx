@@ -13,11 +13,11 @@ import "react-toastify/dist/ReactToastify.css";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Some App",
-  description: "Some App",
+  title: "Innovative Solutions for Your Business",
+  description: "Innovative Solutions for Your Business",
   icons: {
-    icon: "/assets/icons/Icon.svg",
-    shortcut: "/assets/icons/Icon.svg",
+    icon: "/assets/icons/logos/logo-icon.tsx",
+    shortcut: "/assets/icons/logos/logo-icon.tsx",
   },
 };
 

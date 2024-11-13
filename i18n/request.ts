@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 const supportedLocales = ["en", "pl"];
 const defaultLocale = "en";
 
+// @ts-ignore
 export default getRequestConfig(async ({ pathname }) => {
   let locale = pathname?.split("/")[1] || defaultLocale;
   if (!supportedLocales.includes(locale)) {
