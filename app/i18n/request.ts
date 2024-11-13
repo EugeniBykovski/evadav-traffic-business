@@ -3,7 +3,7 @@ import { getRequestConfig } from "next-intl/server";
 const supportedLocales = ["en", "pl"];
 const defaultLocale = "en";
 
-// @ts-expect-error
+// @ts-expect-error: searchParams may be undefined in some cases, handled with defaultLocale
 export default getRequestConfig(async ({ searchParams }) => {
   let locale = searchParams?.get("lang") || defaultLocale;
 
