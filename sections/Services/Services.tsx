@@ -4,6 +4,7 @@ import { FC, memo } from "react";
 import { servicesData } from "@/data/mock-data";
 import Subtitle from "@/components/Subtitle/Subtitle";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const ServicesSection: FC = memo(() => {
   const t = useTranslations("services-section");
@@ -20,16 +21,18 @@ const ServicesSection: FC = memo(() => {
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               } items-center`}
             >
-              <div
-                className="w-full md:w-1/2 h-96 bg-gray-300 flex items-center justify-center"
-                style={{
-                  backgroundImage: service.image
-                    ? `url(${service.image.src})`
-                    : undefined,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              ></div>
+              <div className="w-full md:w-1/2 h-96 bg-gray-300 flex items-center justify-center">
+                {service.image && (
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={service.width}
+                    height={service.height}
+                    className="object-cover w-full h-full"
+                    placeholder="blur"
+                  />
+                )}
+              </div>
               <div className="w-full md:w-1/2 text-center p-12">
                 <h3 className="font-semibold text-2xl mb-2 text-[#383167]">
                   {service.title}

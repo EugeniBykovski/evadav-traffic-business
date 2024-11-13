@@ -3,6 +3,8 @@
 import { FC, memo } from "react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { handleSmoothScroll } from "@/lib/utils";
 
 const SolutionSection: FC = memo(() => {
   const t = useTranslations("solution-section");
@@ -15,9 +17,15 @@ const SolutionSection: FC = memo(() => {
       <h3 className="md:text-2xl sm:text-lg mb-14 text-[#373168] tracking-wide">
         {t("description")}
       </h3>
-      <Button size="lg" className="text-lg">
-        {t("more")}
-      </Button>
+      <Link
+        href="#services"
+        passHref
+        onClick={(e) => handleSmoothScroll(e, "#services")}
+      >
+        <Button size="lg" className="text-lg">
+          {t("more")}
+        </Button>
+      </Link>
     </div>
   );
 });

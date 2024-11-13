@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "../ui/select";
 
-const supportedLocales = ["en", "pl"];
+const supportedLocales = ["en"];
 
 const LanguageSwitcher: FC = () => {
   const router = useRouter();
