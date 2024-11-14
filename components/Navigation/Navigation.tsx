@@ -62,55 +62,61 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
                   ))}
             </NavigationMenuList>
           </NavigationMenu>
-          <div className="sm:hidden md:block">
+          <div className="hidden md:block">
             {isPageLoaded ? (
               <LanguageSwitcher />
             ) : (
               <Skeleton className="w-16 h-10 rounded-md" />
             )}
           </div>
-          {isPageLoaded && (
-            <Sheet>
-              <SheetTrigger className="md:hidden">
-                <Menu className="text-[#26c0a9]" size={26} />
-              </SheetTrigger>
-              <SheetContent className="top-0 mt-0 ml-[30%] p-4 rounded-t-none border-none rounded-[10px] remove-close-btn">
-                <SheetHeader>
-                  <div className="flex justify-between items-center">
-                    <Logo />
-                  </div>
-                  <Separator className="h-[1px] opacity-5 mt-4 bg-zinc-800" />
-                </SheetHeader>
-                <SheetDescription>
-                  <div className="mt-4 flex flex-col gap-1.5">
-                    {navigationMenuHome.map(({ label, href }) => (
-                      <Link
-                        key={href}
-                        href={href}
-                        passHref
-                        onClick={(e) => handleSmoothScroll(e, href)}
-                      >
-                        <Button
-                          variant="ghost"
-                          className=" text-black/60 hover:text-[#373168]"
+          <div className="flex items-center gap-4 md:hidden">
+            {isPageLoaded ? (
+              <LanguageSwitcher />
+            ) : (
+              <Skeleton className="w-16 h-10 rounded-md" />
+            )}
+            {isPageLoaded && (
+              <Sheet>
+                <SheetTrigger>
+                  <Menu className="text-[#26c0a9]" size={26} />
+                </SheetTrigger>
+                <SheetContent className="top-0 mt-0 ml-[30%] p-4 rounded-t-none border-none rounded-[10px] remove-close-btn">
+                  <SheetHeader>
+                    <div className="flex justify-between items-center">
+                      <Logo />
+                    </div>
+                    <Separator className="h-[1px] opacity-5 mt-4 bg-zinc-800" />
+                  </SheetHeader>
+                  <SheetDescription>
+                    <div className="mt-4 flex flex-col gap-1.5">
+                      {navigationMenuHome.map(({ label, href }) => (
+                        <Link
+                          key={href}
+                          href={href}
+                          passHref
+                          onClick={(e) => handleSmoothScroll(e, href)}
                         >
-                          {t(label.toLowerCase())}
-                        </Button>
-                      </Link>
-                    ))}
-                  </div>
-                  <Separator className="h-[1px] opacity-5 mt-4 bg-zinc-800" />
-                  <div className=" mt-8 w-16">
-                    <LanguageSwitcher />
-                  </div>
-                </SheetDescription>
-              </SheetContent>
-            </Sheet>
-          )}
+                          <Button
+                            variant="ghost"
+                            className=" text-black/60 hover:text-[#373168]"
+                          >
+                            {t(label.toLowerCase())}
+                          </Button>
+                        </Link>
+                      ))}
+                    </div>
+                    <Separator className="h-[1px] opacity-5 mt-4 bg-zinc-800" />
+                  </SheetDescription>
+                </SheetContent>
+              </Sheet>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
+Navigation.displayName = "Navigation";
 
 export default Navigation;
