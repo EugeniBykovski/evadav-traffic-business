@@ -30,7 +30,11 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
   const t = useTranslations("navigation");
 
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
   useEffect(() => setIsPageLoaded(true), []);
+
+  const closeSheet = () => setIsSheetOpen(false);
 
   return (
     <div className={twMerge("py-1", className)}>
@@ -76,7 +80,7 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
               <Skeleton className="w-16 h-10 rounded-md" />
             )}
             {isPageLoaded && (
-              <Sheet>
+              <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                 <SheetTrigger>
                   <Menu className="text-[#26c0a9]" size={26} />
                 </SheetTrigger>
@@ -94,7 +98,10 @@ const Navigation: FC<INavigationProps> = ({ className }) => {
                           key={href}
                           href={href}
                           passHref
-                          onClick={(e) => handleSmoothScroll(e, href)}
+                          onClick={(e) => {
+                            handleSmoothScroll(e, href);
+                            closeSheet();
+                          }}
                         >
                           <Button
                             variant="ghost"
